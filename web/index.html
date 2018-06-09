@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes">
+        <meta charset="utf-8">
+
+        <script src="js/loginFunctions.js" type="text/javascript"></script>
+        <script src="js/ajaxFunctions.js" type="text/javascript"></script>
+        <script src="js/cookiesFunctions.js" type="text/javascript"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="css/loginStyle.css"/> 
+    </head>
+    <body>
+        <div class="container">
+            <!-- Column-->
+            <div class="col">
+                <!-- Form Container-->
+                <div class="form-container">
+
+                    <div style="width: 360px;" class="form style-1">
+                        <header class="header">
+                            <h1 class="active">Web Chat Demo</h1>
+                        </header>
+                        <form class="active">
+                            <div class="form-group">
+                                <input id="login-username" type="text"  placeholder="Username" autofocus/>
+                                <label for="username">Username</label>
+                                <div class="line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input id="login-password" type="password"  placeholder="Password"/>
+                                <label for="password">Password</label>
+                                <div class="line"></div>
+                            </div>
+                            <button class="button" onclick="Login.logIn()">Login</button>
+                        </form>
+                        <form>
+                            <div class="form-group">
+                                <input id="register-username" type="text" placeholder="Username" autofocus/>
+                                <label for="username">Username</label>
+                                <div class="line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input  id="register-password" type="password" placeholder="Password"/>
+                                <label for="password">Password</label>
+                                <div class="line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input id="register-password-repeat" type="password" placeholder="Repeat Password"/>
+                                <label for="password">Repeat Password</label>
+                                <div class="line"></div>
+                            </div>
+                            <button class="button" onclick="Login.signUp()">Register</button>
+                        </form>
+                    </div>
+                    <p id="p_id" class="prova">Not registered? <a id="a_id" href="#" class="" onclick="Login.tgl('')">Sign up</a></p>
+                    <div id="showAlert">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+                console.log(Cookie.getCookie());
+        </script>
+    </body>
+
+</html>

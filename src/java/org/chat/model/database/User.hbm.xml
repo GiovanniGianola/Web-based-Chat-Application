@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-nov-2016 15.53.57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.chat.model.database.User" table="user" catalog="chatdemodatabase" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="username" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true" />
+        </property>
+        <property name="avatar" type="string">
+            <column name="avatar" length="65535" />
+        </property>
+        <property name="isGroup" type="java.lang.Boolean">
+            <column name="isGroup"/>
+        </property>
+        <set name="messagesForIdTo" table="message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idTo" length="50" not-null="true" />
+            </key>
+            <one-to-many class="org.chat.model.database.Message" />
+        </set>
+        <set name="messagesForIdFrom" table="message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idFrom" length="50" not-null="true" />
+            </key>
+            <one-to-many class="org.chat.model.database.Message" />
+        </set>
+    </class>
+</hibernate-mapping>

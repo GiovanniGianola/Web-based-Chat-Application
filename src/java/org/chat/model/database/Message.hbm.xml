@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-nov-2016 15.53.57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.chat.model.database.Message" table="message" catalog="chatdemodatabase" optimistic-lock="version">
+        <id name="idMessage" type="java.lang.Integer">
+            <column name="idMessage" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="userByIdTo" class="org.chat.model.database.User" fetch="select">
+            <column name="idTo" length="50" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByIdFrom" class="org.chat.model.database.User" fetch="select">
+            <column name="idFrom" length="50" not-null="true" />
+        </many-to-one>
+        <property name="textMessage" type="string">
+            <column name="textMessage" length="65535" not-null="true" />
+        </property>
+        <property name="fromVisibility" type="java.lang.Boolean">
+            <column name="fromVisibility" />
+        </property>
+        <property name="toVisibility" type="java.lang.Boolean">
+            <column name="toVisibility" />
+        </property>
+        <property name="timeMessage" type="timestamp">
+            <column name="timeMessage" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
